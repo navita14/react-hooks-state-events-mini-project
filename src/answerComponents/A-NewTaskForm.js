@@ -1,18 +1,18 @@
 import React from "react";
 
-function NewTaskForm({categoriess,setTasks}) {
+function NewTaskForm({ categories, setTasks }) {
   
-  function handleSubmit(event){
-    event.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault()
     const newTask = {
-      "text": event.target.text.value,
-      "category": event.target.category.value
+      'text': event.target.text.value,
+      'category': event.target.category.value
     }
-    setTasks(oldtasks => [...oldtasks,newTask])
+    
+    setTasks(prevTasks => [...prevTasks, newTask])
   }
-
   return (
-    <form className="new-task-form" onSubmit={handleSubmit} >
+    <form className="new-task-form" onSubmit={handleSubmit}>
       <label>
         Details
         <input type="text" name="text" />
@@ -20,7 +20,7 @@ function NewTaskForm({categoriess,setTasks}) {
       <label>
         Category
         <select name="category">
-          {categoriess.map(cat => {
+          {categories.map(cat => {
             return <option value={cat}>{cat}</option>
           })}
         </select>
